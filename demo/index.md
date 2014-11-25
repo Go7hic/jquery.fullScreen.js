@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+        body {background: #f5f5f5;}
+    </style>
+    <script src="jquery-2.1.1.min.js"></script>
+    <script src="jquery.fullscreen.js"></script>
+    <script>
+        $(function () {
+           if($.support.fullscreen){
+            $('#btn').click(function(e){
+                $('.mod').fullScreen();
+            });
+        }
+    })
+    </script>
+</head>
+<body>
+<div class="mod">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, veniam modi debitis sed officia beatae iure nam iusto eaque esse voluptatibus, accusamus eos mollitia at omnis asperiores adipisci incidunt autem!</p>
+    <button id="btn"> 点我全屏 </button>
+</div>
+</body>
+</html>
