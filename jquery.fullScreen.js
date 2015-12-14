@@ -1,14 +1,12 @@
-(function($){
-    //严格模式
+;(function($) {
     "use strict";
 
     // 支持全屏的浏览器
     function supportFullScreen() {
         var doc = document.documentElement;
-
         return ('requestFullscreen' in doc) ||
-                ('mozRequestFullScreen' in doc && document.mozFullScreenEnabled) ||
-                ('webkitRequestFullScreen' in doc);
+            ('mozRequestFullScreen' in doc && document.mozFullScreenEnabled) ||
+            ('webkitRequestFullScreen' in doc);
     }
 
     // 请求全屏
@@ -25,9 +23,9 @@
     // 全屏状态
     function fullScreenStatus() {
         return document.fullscreen ||
-                document.mozFullScreen ||
-                document.webkitIsFullScreen ||
-                false;
+            document.mozFullScreen ||
+            document.webkitIsFullScreen ||
+            false;
     }
     // 取消全屏
     function cancelFullScreen() {
@@ -42,54 +40,49 @@
 
     // 开启全屏
     function onFullScreenEvent(callback) {
-        $(document).on("fullscreenchange mozfullscreenchange webkitfullscreenchange", function(){
-            // The full screen status is automatically
-            // passed to our callback as an argument.
+        $(document).on("fullscreenchange mozfullscreenchange webkitfullscreenchange", function() {
             callback(fullScreenStatus());
         });
     }
 
-
     $.support.fullscreen = supportFullScreen();
 
     $.fn.fullScreen = function(props) {
-        if(!$.support.fullscreen || this.length !== 1) {
+        if (!$.support.fullscreen || this.length !== 1) {
             return this;
         }
 
-        if(fullScreenStatus()){
+        if (fullScreenStatus()) {
             // 如果处于全屏则退出
             cancelFullScreen();
             return this;
         }
 
         var options = $.extend({
-            'background'      : '',
-            'callback'        : $.noop( ),
-            'fullscreenClass' : 'fullScreen'
-        }, props),
+                'background': '',
+                'callback': $.noop(),
+                'fullscreenClass': 'fullScreen'
+            }, props),
 
-        elem = this,
+            elem = this,
 
-        fs = $('<div>', {
-            'css' : {
-                'overflow-y' : 'auto',
-                'background' : options.background,
-                'width'      : '100%',
-                'height'     : '100%'
-            }
-        })
-            .insertBefore(elem)
-            .append(elem);
+            fs = $('<div>', {
+                'css': {
+                    'overflow-y': 'auto',
+                    'background': options.background,
+                    'width': '100%',
+                    'height': '100%'
+                }
+            }).insertBefore(elem).append(elem);
 
         // 添加全屏样式
-        elem.addClass( options.fullscreenClass );
+        elem.addClass(options.fullscreenClass);
 
 
         requestFullScreen(fs.get(0));
 
         fs.click(function(e) {
-            if(e.target == this){
+            if (e.target == this) {
 
                 cancelFullScreen();
             }
@@ -100,24 +93,23 @@
             return elem;
         };
         onFullScreenEvent(function(fullScreen) {
-            if(!fullScreen) {
+            if (!fullScreen) {
 
-                    $(document).off( 'fullscreenchange mozfullscreenchange webkitfullscreenchange' );
-                    // 移除样式
-                elem.removeClass( options.fullscreenClass ).insertBefore(fs);
+                $(document).off('fullscreenchange mozfullscreenchange webkitfullscreenchange');
+                // 移除样式
+                elem.removeClass(options.fullscreenClass).insertBefore(fs);
                 fs.remove();
             }
 
-            if(options.callback) {
-                            options.callback(fullScreen);
-                        }
+            if (options.callback) {
+                options.callback(fullScreen);
+            }
         });
-
         return elem;
     };
 
-    $.fn.cancelFullScreen = function( ) {
-            cancelFullScreen();
-            return this;
+    $.fn.cancelFullScreen = function() {
+        cancelFullScreen();
+        return this;
     };
 }(jQuery));
