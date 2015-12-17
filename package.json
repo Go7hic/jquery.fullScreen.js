@@ -1,0 +1,22 @@
+{
+  "name": "full_screen.js",
+  "version": "1.0.0",
+  "description": "jquery.fullScreen.js ============",
+  "main": "jquery.fullScreen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyygtfx/jquery.fullScreen.js.git"
+  },
+  "author": "Go7hic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dyygtfx/jquery.fullScreen.js/issues"
+  },
+  "homepage": "https://github.com/dyygtfx/jquery.fullScreen.js#readme",
+  "dependencies": {
+    "jquery": "^2.1.4"
+  }
+}

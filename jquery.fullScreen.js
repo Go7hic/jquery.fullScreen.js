@@ -94,7 +94,6 @@
         };
         onFullScreenEvent(function(fullScreen) {
             if (!fullScreen) {
-
                 $(document).off('fullscreenchange mozfullscreenchange webkitfullscreenchange');
                 // 移除样式
                 elem.removeClass(options.fullscreenClass).insertBefore(fs);
@@ -107,7 +106,6 @@
         });
         return elem;
     };
-
     $.fn.cancelFullScreen = function() {
         cancelFullScreen();
         return this;
