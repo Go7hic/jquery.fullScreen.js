@@ -83,7 +83,6 @@
 
         fs.click(function(e) {
             if (e.target == this) {
-
                 cancelFullScreen();
             }
         });

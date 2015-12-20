@@ -3,12 +3,10 @@ jquery.fullScreen.js
 
 jquery全屏插件
 
-###基本使用
+### Usage
 
-1. 引入 jquery
-2. 引入插件
-3. demo
-
+1. link jquery
+2. demo
 ```html
 <div class="mod">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, veniam modi debitis sed officia beatae iure nam iusto eaque esse voluptatibus, accusamus eos mollitia at omnis asperiores adipisci incidunt autem!</p>
@@ -17,11 +15,11 @@ jquery全屏插件
 ```
 
 ```javascript
- $(function () {
-           if($.support.fullscreen){
-            $('#btn').click(function(e){
-                $('.mod').fullScreen();
-            });
-        }
-    })
+$(function () {
+    if($.support.fullscreen){
+        $('#btn').click(function(e){
+            $('.mod').fullScreen();
+        });
+    }
+})
 ```
