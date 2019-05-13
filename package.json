@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/dyygtfx/jquery.fullScreen.js#readme",
   "dependencies": {
-    "jquery": "^2.1.4"
+    "jquery": "^3.4.1"
   }
 }
