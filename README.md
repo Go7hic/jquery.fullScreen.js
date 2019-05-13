@@ -1,6 +1,8 @@
 jquery.fullScreen.js
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dyygtfx/jquery.fullScreen.js.svg)](https://greenkeeper.io/)
+
 jquery全屏插件
 
 ### Usage
